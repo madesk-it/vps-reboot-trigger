@@ -1,0 +1,17 @@
+{
+  "name": "vps-reboot-trigger",
+  "version": "1.0.0",
+  "description": "A trigger to reboot own VPS",
+  "main": "bot.js",
+  "dependencies": {
+    "ovh": "^2.0.3",
+    "telegraf": "^3.38.0",
+    "yargs": "^15.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "madesk-team",
+  "license": "ISC"
+}
