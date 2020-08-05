@@ -1,5 +1,5 @@
 # vps-reboot-trigger
-This is a tool to easy restart a VPS using a telegram bot command.
+Tool to easy restart a VPS using a telegram bot command.
 
 ### Start the listener with custom params
 ```
