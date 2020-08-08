@@ -12,6 +12,9 @@ RUN yarn
 # Copy app
 COPY . .
 
+# Expose
+EXPOSE 3000
+
 # Run command 
 ENTRYPOINT [ "node", "bot.js" ]
 CMD [ "" ]

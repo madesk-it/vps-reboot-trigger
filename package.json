@@ -1,9 +1,10 @@
 {
   "name": "vps-reboot-trigger",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A trigger to reboot own VPS",
   "main": "bot.js",
   "dependencies": {
+    "express": "^4.17.1",
     "ovh": "^2.0.3",
     "telegraf": "^3.38.0",
     "yargs": "^15.4.1"

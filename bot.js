@@ -5,6 +5,7 @@
 // --vps-app-key
 // --vps-secret-key
 // --vps-consumer-key
+// --webhook-auth-key
 const {argv} = require('yargs')
 
 // Init VPS connection
@@ -17,6 +18,10 @@ const ovh = require('ovh')({
 // Init telegram bot
 const { Telegraf } = require('telegraf')
 const bot = new Telegraf(argv.telegramBotToken)
+
+// Init express web framework
+const express = require('express')
+const app = express()
 
 // Init trigger & commands
 bot.command('reboot', (ctx) => {
@@ -37,4 +42,32 @@ bot.command('reboot', (ctx) => {
 
 })
 
+// Init trigger & webhook
+app.get('/' + argv.webhookAuthKey + '/reboot', function (request, response) {
+
+    ovh.request("POST", "/vps/" + argv.vpsLink + "/reboot", function(err, res){
+        
+        if(err) { // Error
+
+            response.json({
+                success: false,
+                error: err
+            });
+
+        }
+        else { // Success
+
+            response.json({
+                success: true
+            });
+
+            bot.telegram.sendMessage(argv.telegramAdminChat, argv.vpsLink + ' just restarted.')
+        }
+
+    });
+
+});
+
+// Start all
 bot.launch()
+app.listen(3000)
