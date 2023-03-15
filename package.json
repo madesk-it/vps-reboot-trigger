@@ -13,6 +13,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "madesk-team",
-  "license": "ISC"
+  "author": "derogab",
+  "license": "UNLICENSED"
 }
